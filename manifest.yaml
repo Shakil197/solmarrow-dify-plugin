@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 1.0.1
 type: plugin
 author: solmarrow
 name: solmarrow
@@ -17,7 +17,7 @@ plugins:
   tools:
     - provider/solmarrow.yaml
 meta:
-  version: 1.0.0
+  version: 1.0.1
   arch:
     - amd64
     - arm64
@@ -25,7 +25,7 @@ meta:
     language: python
     version: "3.12"
     entrypoint: main
-  minimum_dify_version: 1.6.0
+  minimum_dify_version: 1.7.0
 created_at: 2026-11-09T09:00:00.000000000Z
 network:
   domains:
