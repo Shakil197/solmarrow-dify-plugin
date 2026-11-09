@@ -1,0 +1,40 @@
+identity:
+  name: upload_media_from_url
+  author: solmarrow
+  label:
+    en_US: "Upload media from URL"
+description:
+  human:
+    en_US: "Add an image or video from a public https link to the workspace media library. Use the returned media_id in Create post."
+  llm: "Add an image or video from a public https link to the workspace media library. Use the returned media_id in Create post."
+extra:
+  python:
+    source: tools/upload_media_from_url.py
+parameters:
+  - name: workspace_id
+    type: string
+    required: false
+    label:
+      en_US: "Workspace ID"
+    human_description:
+      en_US: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    llm_description: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    form: llm
+  - name: url
+    type: string
+    required: true
+    label:
+      en_US: "File URL"
+    human_description:
+      en_US: "Public https link to a JPG, PNG, WebP, GIF, MP4, MOV or WebM file."
+    llm_description: "Public https link to a JPG, PNG, WebP, GIF, MP4, MOV or WebM file."
+    form: llm
+  - name: file_name
+    type: string
+    required: false
+    label:
+      en_US: "File name"
+    human_description:
+      en_US: "Optional name to save it under."
+    llm_description: "Optional name to save it under."
+    form: llm

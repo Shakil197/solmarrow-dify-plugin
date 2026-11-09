@@ -1,0 +1,49 @@
+identity:
+  name: get_analytics
+  author: solmarrow
+  label:
+    en_US: "Get analytics"
+description:
+  human:
+    en_US: "Get performance numbers (such as views, likes, comments) for a workspace or one post, optionally in a time range."
+  llm: "Get performance numbers (such as views, likes, comments) for a workspace or one post, optionally in a time range."
+extra:
+  python:
+    source: tools/get_analytics.py
+parameters:
+  - name: workspace_id
+    type: string
+    required: false
+    label:
+      en_US: "Workspace ID"
+    human_description:
+      en_US: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    llm_description: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    form: llm
+  - name: from
+    type: string
+    required: false
+    label:
+      en_US: "From"
+    human_description:
+      en_US: "Start of the range (ISO 8601 with offset)."
+    llm_description: "Start of the range (ISO 8601 with offset)."
+    form: llm
+  - name: to
+    type: string
+    required: false
+    label:
+      en_US: "To"
+    human_description:
+      en_US: "End of the range (ISO 8601 with offset)."
+    llm_description: "End of the range (ISO 8601 with offset)."
+    form: llm
+  - name: post_id
+    type: string
+    required: false
+    label:
+      en_US: "Post ID"
+    human_description:
+      en_US: "Only this post."
+    llm_description: "Only this post."
+    form: llm

@@ -1,0 +1,22 @@
+identity:
+  name: list_accounts
+  author: solmarrow
+  label:
+    en_US: "List accounts"
+description:
+  human:
+    en_US: "List the connected social accounts in a workspace (id, network, name, status). Use the ids when creating a post."
+  llm: "List the connected social accounts in a workspace (id, network, name, status). Use the ids when creating a post."
+extra:
+  python:
+    source: tools/list_accounts.py
+parameters:
+  - name: workspace_id
+    type: string
+    required: false
+    label:
+      en_US: "Workspace ID"
+    human_description:
+      en_US: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    llm_description: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    form: llm

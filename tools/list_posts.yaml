@@ -1,0 +1,58 @@
+identity:
+  name: list_posts
+  author: solmarrow
+  label:
+    en_US: "List posts"
+description:
+  human:
+    en_US: "List posts in a workspace, newest first, optionally filtered by status and time range."
+  llm: "List posts in a workspace, newest first, optionally filtered by status and time range."
+extra:
+  python:
+    source: tools/list_posts.py
+parameters:
+  - name: workspace_id
+    type: string
+    required: false
+    label:
+      en_US: "Workspace ID"
+    human_description:
+      en_US: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    llm_description: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    form: llm
+  - name: status
+    type: string
+    required: false
+    label:
+      en_US: "Status"
+    human_description:
+      en_US: "draft, scheduled, publishing, published, partially_published or failed."
+    llm_description: "draft, scheduled, publishing, published, partially_published or failed."
+    form: llm
+  - name: from
+    type: string
+    required: false
+    label:
+      en_US: "From"
+    human_description:
+      en_US: "Only posts from this time (ISO 8601 with offset)."
+    llm_description: "Only posts from this time (ISO 8601 with offset)."
+    form: llm
+  - name: to
+    type: string
+    required: false
+    label:
+      en_US: "To"
+    human_description:
+      en_US: "Only posts before this time (ISO 8601 with offset)."
+    llm_description: "Only posts before this time (ISO 8601 with offset)."
+    form: llm
+  - name: limit
+    type: number
+    required: false
+    label:
+      en_US: "Limit"
+    human_description:
+      en_US: "How many posts, 1 to 50 (default 20)."
+    llm_description: "How many posts, 1 to 50 (default 20)."
+    form: llm

@@ -1,0 +1,14 @@
+identity:
+  name: list_workspaces
+  author: solmarrow
+  label:
+    en_US: "List workspaces"
+description:
+  human:
+    en_US: "List the SolMarrow workspaces this API key can use, with id, name, time zone and your role."
+  llm: "List the SolMarrow workspaces this API key can use, with id, name, time zone and your role."
+extra:
+  python:
+    source: tools/list_workspaces.py
+parameters:
+  []

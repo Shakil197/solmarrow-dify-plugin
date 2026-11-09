@@ -1,0 +1,38 @@
+version: 1.0.0
+type: plugin
+author: solmarrow
+name: solmarrow
+label:
+  en_US: SolMarrow
+description:
+  en_US: Draft, schedule and track social media posts on 19 networks from Dify. Free plan with unlimited posts; sign in with a personal API key.
+icon: icon.svg
+icon_dark: icon-dark.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+plugins:
+  tools:
+    - provider/solmarrow.yaml
+meta:
+  version: 1.0.0
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.6.0
+created_at: 2026-11-09T09:00:00.000000000Z
+network:
+  domains:
+    - app.solmarrow.com
+privacy: PRIVACY.md
+repo: https://github.com/Shakil197/solmarrow-dify-plugin
+contact: support@solmarrow.com
+tags:
+  - social
+  - productivity

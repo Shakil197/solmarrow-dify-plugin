@@ -1,0 +1,94 @@
+identity:
+  name: create_post
+  author: solmarrow
+  label:
+    en_US: "Create post"
+description:
+  human:
+    en_US: "Save a draft or schedule a social media post on one or more connected accounts. Without schedule_at it is saved as a draft."
+  llm: "Save a draft or schedule a social media post on one or more connected accounts. Without schedule_at it is saved as a draft."
+extra:
+  python:
+    source: tools/create_post.py
+parameters:
+  - name: workspace_id
+    type: string
+    required: false
+    label:
+      en_US: "Workspace ID"
+    human_description:
+      en_US: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    llm_description: "Workspace id from List workspaces. Optional when the API key reaches only one workspace."
+    form: llm
+  - name: text
+    type: string
+    required: true
+    label:
+      en_US: "Post text"
+    human_description:
+      en_US: "Post text (up to 10000 characters)."
+    llm_description: "Post text (up to 10000 characters)."
+    form: llm
+  - name: account_ids
+    type: string
+    required: false
+    label:
+      en_US: "Account IDs"
+    human_description:
+      en_US: "Account ids from List accounts, separated by commas. Needed to schedule; optional for a draft."
+    llm_description: "Account ids from List accounts, separated by commas. Needed to schedule; optional for a draft."
+    form: llm
+  - name: schedule_at
+    type: string
+    required: false
+    label:
+      en_US: "Schedule at"
+    human_description:
+      en_US: "When to publish: ISO 8601 with offset, at least 5 minutes ahead, like 2026-11-12T09:00:00+06:00. Leave empty for a draft."
+    llm_description: "When to publish: ISO 8601 with offset, at least 5 minutes ahead, like 2026-11-12T09:00:00+06:00. Leave empty for a draft."
+    form: llm
+  - name: publish_now
+    type: boolean
+    required: false
+    label:
+      en_US: "Publish now"
+    human_description:
+      en_US: "Publish right away instead of saving a draft (ignored when schedule_at is set)."
+    llm_description: "Publish right away instead of saving a draft (ignored when schedule_at is set)."
+    form: llm
+  - name: media_ids
+    type: string
+    required: false
+    label:
+      en_US: "Media IDs"
+    human_description:
+      en_US: "Media ids from Upload media from URL, separated by commas, in order."
+    llm_description: "Media ids from Upload media from URL, separated by commas, in order."
+    form: llm
+  - name: per_account_text
+    type: string
+    required: false
+    label:
+      en_US: "Per-account text"
+    human_description:
+      en_US: "JSON object with different text for some accounts: {\"account-id\": \"text\"}."
+    llm_description: "JSON object with different text for some accounts: {\"account-id\": \"text\"}."
+    form: llm
+  - name: per_account_options
+    type: string
+    required: false
+    label:
+      en_US: "Per-account options"
+    human_description:
+      en_US: "JSON object of network settings, like {\"account-id\": {\"title\": \"...\", \"privacy\": \"public\"}} for YouTube, Pinterest, Tumblr, WordPress."
+    llm_description: "JSON object of network settings, like {\"account-id\": {\"title\": \"...\", \"privacy\": \"public\"}} for YouTube, Pinterest, Tumblr, WordPress."
+    form: llm
+  - name: idempotency_key
+    type: string
+    required: false
+    label:
+      en_US: "Idempotency key"
+    human_description:
+      en_US: "Any unique string for this post. Sending it again returns the first post instead of creating a duplicate."
+    llm_description: "Any unique string for this post. Sending it again returns the first post instead of creating a duplicate."
+    form: llm

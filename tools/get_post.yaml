@@ -1,0 +1,22 @@
+identity:
+  name: get_post
+  author: solmarrow
+  label:
+    en_US: "Get post"
+description:
+  human:
+    en_US: "Get one post with its status and the result for each account (published link or error)."
+  llm: "Get one post with its status and the result for each account (published link or error)."
+extra:
+  python:
+    source: tools/get_post.py
+parameters:
+  - name: post_id
+    type: string
+    required: true
+    label:
+      en_US: "Post ID"
+    human_description:
+      en_US: "Post id from Create post or List posts."
+    llm_description: "Post id from Create post or List posts."
+    form: llm
